@@ -1,0 +1,21 @@
+<%- include('layout/header'); %>
+
+
+       <div class="center-box">
+        <form action="/users/login" method="POST">
+            <p>Log into Your Account</p>
+            <input type="text"  placeholder="Email"name="email" id="email"required>
+        
+            <input type="text"  placeholder="Password" name="password" id="password"required >
+            
+            <button class="btn">Login</button>
+            <p>Don’t have an account yet? <a href="/users/register">Register here</a></p>
+        </form>
+           
+       </div>
+  
+
+   
+
+
+<%- include('layout/footer'); %>

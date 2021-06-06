@@ -1,0 +1,37 @@
+<%- include('../layout/adminheader'); %>
+<div class="main-header">
+<h2>Pages</h2>
+
+</div>
+<br><a href="/admin/pages/add-page">Add a new page</a>
+<br>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>title</th>
+            <th>edit</th>
+            <th>delete</th>
+        </tr>
+    </thead>
+    <tbody>
+<% pages.forEach(function(page){%>
+    <tr>
+        <td><%= page.title%></td>
+        <td><a href="/admin/pages/edit-page/<%= page._id %>">edit</a></td>
+        
+        <% if (page.slug =="home") {%>
+            <td></td>
+            <% } else { %>
+
+        <td><a href="/admin/pages/delete-page/<%= page._id %>">delete</a></td>
+        <%} %>
+    </tr>
+   
+<%  });%>
+
+</tbody>
+</table>
+
+<%- include('../layout/adminfooter'); -%>

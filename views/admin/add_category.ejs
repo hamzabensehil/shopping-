@@ -1,0 +1,22 @@
+<%- include('../layout/adminheader'); %>
+<div class="main-header">
+<h2>add a category</h2>
+
+</div>
+<br><a href="/admin/categories">Back to all categories</a>
+<br>
+<div class="box-login">
+<div class='login-container'>
+<form method="POST" action="/admin/categories/add-category">
+<div>
+    <label for="">title</label>
+    <input type="text" name="title" value="<%=title%>" placeholder="Title">
+</div>
+<button >Submit</button>
+</form>
+</div>
+</div>
+
+
+
+<%- include('../layout/footer'); -%>

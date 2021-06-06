@@ -1,0 +1,27 @@
+
+<%- include('layout/header'); %>
+
+<div class="details-cont">
+   <div ><h1><%= p.title%></h1></div> 
+    <div class="details">
+        <img class="detail-img" src="/product_images/<%= p.id%>/<%= p.image%>" alt="">
+   
+    <div class="info">
+        <p><%= p.desc%></p>
+        <p><%= parseFloat (p.price).toFixed (2)%></p>
+        <p><a class="btn" href="/cart/add/<%= p.slug%>">Add to cart</a></p>
+    </div>
+    </div>
+    <div >
+    <ul class="gallery">
+        <% galleryImages.forEach(function(image){ %>
+        <% if (image != "thumbs") { %>
+       
+        <% } %>
+        <% }); %>
+    </ul>
+
+</div>
+   
+</div>
+<%- include('layout/footer'); %>

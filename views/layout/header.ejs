@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin area</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+   
+        <nav>
+            <ul>
+                <li><a href="/">Sopping cart</a></li>
+             </ul>
+             <ul>
+                <% pages.forEach(function(page){ %>
+                    <% if (page.slug =="home"){ %>
+                        <li><a href=" /"><%= page.title %></a></li>
+                        <% }else{ %>
+                    <li><a href=" <%= page.slug %>"><%= page.title %></a></li>
+                    <% } %>
+                    <% }) %>
+            </ul>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="/cart/checkout">My Cart (
+                    <% if (typeof cart !== "undefined") { %>
+                    <%= cart.length %>
+                    <% } else {%>
+                    0
+                    <% } %>
+                )</a>
+            </li>
+            <% if (user) { %>
+            <li><a href="/users/logout">Hi, <%= user.username %> ( logout )</a></li>
+            <% } else {%>
+            <li><a href="/users/register">Register</a></li>
+            <li><a href="/users/login">Log in</a></li>
+            <% } %>
+            <% if (user && user.admin == 1) { %>
+            <li><a href="/admin/pages">Admin Area</a></li>
+            <% }%>
+            
+        </ul>
+        </nav>
+        <div class="cont">
+    
+    <%- messages('message', locals)%>
+    <% if (errors) {%>
+                
+        <% errors.forEach(function(error) { %>
+            <div class="alert">
+                <span class="closebtn" 
+                onclick="this.parentElement.style.display='none';">&times;</span>
+               <%= error.msg %>
+              </div>          
+            <% }); %>
+            <% }%>
+  
+
+
+
+
+

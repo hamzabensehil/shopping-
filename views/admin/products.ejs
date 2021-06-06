@@ -1,0 +1,57 @@
+<%- include('../layout/adminheader'); %>
+<div class="main-header">
+<h2>Products</h2>
+
+</div>
+<div class="main">
+<div class="main-head">
+
+<br><a href="/admin/products/add-product">Add a new Product</a>
+</div>
+
+<% if (count > 0) { %>
+
+   <div class="center-box">
+<table>
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>category</th>
+            <th>Product image</th>
+            <th>edit</th>
+            <th>delete</th>
+        </tr>
+    </thead>
+    <tbody>
+<% products.forEach(function(Product){%>
+    <tr>
+        <td><%= Product.title%></td>
+        <td>$<%= parseFloat(Product.price).toFixed(2) %></td>
+        <td><%= Product.category%></td>
+        <td >
+
+            <% if (Product.image == "") { %>
+                <img src="/images/noimage.png" >
+                <% }else { %>
+                    
+        
+                    <img class="pr" src="/product_images/<%=Product._id %>/<%= Product.image %>" >
+                    <% } %>
+        </td>
+        <td><a href="/admin/products/edit-product/<%= Product._id %>"> <i class="material-icons">edit</i></a></td>
+        <td><a href="/admin/products/delete-products/<%= Product._id %>">delete</a></td>
+       
+    </tr>
+   
+<%  });%>
+
+</tbody>
+</table>
+</div>
+</div>
+<% }else{%>
+    <h3>No product </h3>
+    <% }%>
+
+<%- include('../layout/adminfooter'); -%>

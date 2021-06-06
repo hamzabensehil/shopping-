@@ -1,0 +1,35 @@
+<%- include('../layout/adminheader'); %>
+<div class="main-header">
+<h2>add a page</h2>
+
+</div>
+<br><a href="/admin/pages">Back to all pages</a>
+<br>
+<div class="box-login">
+<div class='login-container'>
+
+
+<form method="POST" action="/admin/pages/add-page">
+<div>
+    <label for="">title</label>
+    <input type="text" name="title" value="<%=title%>" placeholder="Title">
+</div>
+
+<div>
+    <label for="">Slug</label>
+    <input type="text" name="slug" value="<%=slug%>" placeholder="Title">
+</div>
+
+<div>
+    <label for="">content</label>
+    <textarea name="content"  cols="30" rows="10"placeholder="content"><%=content%></textarea>
+   
+</div>
+<button >Submit</button>
+</form>
+</div>
+</div>
+
+
+
+<%- include('../layout/footer'); -%>
